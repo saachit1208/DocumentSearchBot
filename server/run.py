@@ -9,7 +9,6 @@ from werkzeug.exceptions import RequestEntityTooLarge
 
 # explicitly set os variable here
 os.environ['OPENAI_API_KEY'] = ""
-# Set up the Flask-JWT-Extended extension
 
 app = Flask(__name__)
 #Configure Flask app for JWT
