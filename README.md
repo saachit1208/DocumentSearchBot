@@ -8,6 +8,7 @@ A simple search bot application built with React (client) and Flask (server).
 - [Installation](#installation)
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
+- [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -54,6 +55,10 @@ To run the Search Bot App, follow the steps below:
     pip install -r requirements.txt
     ```
 
+4. Set up OpenAI API key:
+
+   Obtain an API key from OpenAI and set it in the `run.py` file. Open the `run.py` file and locate the `openai.api_key` variable. Replace `'YOUR_OPENAI_API_KEY'` with your actual OpenAI API key.
+
 ## Usage
 
 1. Run the Flask server:
@@ -73,15 +78,70 @@ To run the Search Bot App, follow the steps below:
 
    The React app will be accessible at `http://localhost:3000`.
 
+### Running Both Simultaneously
+
+To run both the React app and Flask server simultaneously, you can use tools like `concurrently` (for npm) or `&` (for Windows command line). Here are examples:
+
+#### Using concurrently (for npm):
+
+1. Install `concurrently` globally (if not already installed):
+
+    ```bash
+    npm install -g concurrently
+    ```
+
+2. Run both apps simultaneously:
+
+    ```bash
+    npm run dev
+    ```
+
+#### Using Windows Command Line:
+
+1. Open two command line windows.
+
+2. In the first window, navigate to the `client` folder and run the React app:
+
+    ```bash
+    cd client
+    npm start
+    ```
+
+3. In the second window, navigate to the `server` folder and run the Flask server:
+
+    ```bash
+    cd server
+    python run.py
+    ```
+
+This will start both the React app and Flask server, allowing you to interact with the application.
+
 ## Folder Structure
 
 - **client**: Contains the React app files.
 - **server**: Contains the Flask app files, including the `run.py` script to start the server.
 
-## Contributing
+## Testing
 
-Contributions are welcome! Please follow the [Contributing Guidelines](CONTRIBUTING.md).
+Testing for the server-side code is implemented using Pytest. Tests are located in the `tests` folder within the `server` directory. To run the tests, follow these steps:
 
-## License
+1. Navigate to the `server` folder:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+    ```bash
+    cd server
+    ```
+
+2. Activate the virtual environment (if not already activated):
+
+    ```bash
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+3. Run the tests:
+
+    ```bash
+    pytest
+    ```
+
+   This will execute the tests and provide the test results.
+
