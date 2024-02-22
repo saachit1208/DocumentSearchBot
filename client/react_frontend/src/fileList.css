@@ -1,0 +1,33 @@
+/* File: FileListPage.css */
+.file-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.file-list-table th, .file-list-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.file-list-table th {
+  background-color: #f2f2f2;
+}
+
+.file-list-table button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Additional styling for the upload section */
+.upload-section {
+  margin-top: 20px;
+}
+
+.upload-section input, .upload-section button {
+  margin-right: 10px;
+}

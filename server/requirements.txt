@@ -1,0 +1,8 @@
+llama-index
+PyMuPDF
+python-docx
+openpyxl
+python-pptx
+flask-cors
+flask-JWT-Extended
+pytest-flask

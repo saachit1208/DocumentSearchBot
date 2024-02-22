@@ -1,0 +1,60 @@
+/* File: search.css */
+
+.search-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start; /* Adjusted to align items at the start */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .search-button,
+.clear-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px; /* Add some spacing between buttons */
+}
+
+.clear-button:hover, .search-button:hover {
+  background-color: #dc3545; /* Change color on hover for visual feedback */
+}
+
+/* Add this rule to align buttons side by side */
+.button-container {
+  display: flex;
+  margin-top: 10px; /* Adjust as needed */
+}
+  .results-container {
+    margin-top: 20px;
+  }
+  
+  .results-text {
+    font-weight: bold;
+  }
+  
+  .results-content {
+    margin-top: 10px;
+  }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
