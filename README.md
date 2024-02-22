@@ -1,4 +1,4 @@
-# Search Bot App
+# Document Search Bot
 
 A simple search bot application built with React (client) and Flask (server).
 
