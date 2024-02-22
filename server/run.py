@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
 
 # explicitly set os variable here
-os.environ['OPENAI_API_KEY'] = "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"
+os.environ['OPENAI_API_KEY'] = ""
 # Set up the Flask-JWT-Extended extension
 
 app = Flask(__name__)
