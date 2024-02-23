@@ -50,5 +50,18 @@ Query Engines: A query engine is an end-to-end pipeline that allow you to ask qu
 [^1]: https://docs.llamaindex.ai/en/v0.9.10/getting_started/concepts.html
 
 
+#### 3.3.2 Document Search Backend 
 
-#### 3.3.2 Document Search Bac
+The backend includes functionality to index documents stored in the "./data" directory. Various document types, including PDFs, PPTs, DOCs, XLSX, are supported. The index_documents function utilizes the LLama Index to create a searchable document index. 
+
+### 4. User Authentication 
+
+#### 4.1 JWT Implementation 
+
+The implementation of user authentication using JSON Web Tokens provides a secure access control mechanism. User roles dictate access to specific functionalities, ensuring a role-based security model. For simplicity, user data is currently hardcoded, and future integrations can include a database. 
+
+### 5. Testing Using Pytest 
+
+#### 5.1 Unit Testing 
+
+Pytest is employed for automated unit testing of various components. Comprehensive coverage includes functionalities such as login, search, file upload, and user authentication. 
