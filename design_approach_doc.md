@@ -4,7 +4,7 @@
 
 ### Application Overview
 
-The application serves as a Search Bot designed for natural language document queries. It integrates a React front-end and a Flask back-end to provide users with an efficient and user-friendly search experience. The system utilizes the LLama Index data framework to connect custom data sources with OPEN AI’s Large Language Models.
+The application serves as a Search Bot or query engine designed for natural language document queries. It integrates a React front-end and a Flask back-end to provide users with an efficient and user-friendly search experience. The system utilizes the LLama Index data framework to connect custom data sources with OPEN AI’s Large Language Models.
 
 ## 2. Front-End Functionality
 
@@ -31,13 +31,24 @@ The Flask back end uses JSON Web Tokens (JWT) for secure user authentication. Us
 Flask back-end APIs handle file-related functionalities, including uploading, listing, and deleting files. User roles (admin, user) are enforced to control access to specific functionalities. Robust error handling is implemented to address various scenarios.
 
 ### 3.3 Search API Integration
+The search API takes a query input and passes this to the LLAMA-INDEX backed document search flow. It returns the response
 
 #### 3.3.1 LLama Index Integration
+Llama Index is data framework connecting custom data sources with Large Language models. It uses the principle of Retrieval Augmented Generation to provide end to end  pipelines to work with custom data.
 
-The LLama Index, an advanced search technology powered by OpenAI, is integrated into the system for efficient search capabilities. Utilizing the OpenAI API, the system employs LLama Index Python libraries to enhance search results using AI-driven vector representations.
+Large Language Models (LLMs) undergo training on extensive datasets, yet they lack personalized training on individual user data. The introduction of Retrieval-Augmented Generation (RAG) addresses this limitation by incorporating user-specific data into the existing dataset accessible to LLMs. Frequent mentions of RAG can be found throughout this documentation.
 
-**What is the LLama Index:**
+Within the RAG framework, user data is loaded and prepped for queries, effectively "indexed." User queries then operate on this index, refining the data to the most pertinent context. Subsequently, this context, combined with the user's query, is presented to the LLM alongside a prompt, soliciting a response.
 
-The LLama Index, accessible at [www.llamaindex.ai](https://www.llamaindex.ai), is a cutting-edge search technology that leverages AI-driven vector representations to create an index of documents. This integration enhances the quality of search results, providing a seamless and efficient search experience.
+For this specific application we are using the query engine use case offered by llama index to ask questions over your data - 
+Query Engines: A query engine is an end-to-end pipeline that allow you to ask question over your data. It takes in a natural language query, and returns a response, along with reference context retrieved and passed to the LLM.
+
+[^1]: https://docs.llamaindex.ai/en/v0.9.10/getting_started/concepts.html
+
+![image](https://github.com/saachit1208/DocumentSearchBot/assets/32326876/9adb6858-8cb8-44bf-8ac3-32192ffc3907)
+
+[^1]: https://docs.llamaindex.ai/en/v0.9.10/getting_started/concepts.html
+
+
 
 #### 3.3.2 Document Search Bac
