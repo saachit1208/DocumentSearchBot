@@ -61,19 +61,21 @@ def upload_files():
     if current_user['role'] != 'admin':
         return jsonify({'error': 'Unauthorized'}), 403
     uploaded_filenames = []
-
-    
-    # Iterate over potential file keys dynamically
     for key in request.files:
         file = request.files[key]
-        print(file)
         # Check if the file size exceeds the limit
+        if file.content_length > MAX_FILE_SIZE_MB * 1024 * 1024:
+                return jsonify({'error': 'File size exceeds the limit of {MAX_FILE_SIZE_MB}MB'}), 400
+
+        if not allowed_file(file.filename):
+            return jsonify({'error': 'Invalid file type'}), 400
+
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             uploaded_filenames.append(filename)
-
+            
     return jsonify({'uploaded_files': uploaded_filenames})
 
 # Protected endpoint - requires JWT token and specific role
