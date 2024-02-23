@@ -1,4 +1,4 @@
-# Search Bot App
+# Document Search Bot
 
 A simple search bot application built with React (client) and Flask (server).
 
@@ -123,7 +123,7 @@ This will start both the React app and Flask server, allowing you to interact wi
 
 ## Testing
 
-Testing for the server-side code is implemented using Pytest. Tests are located in the `tests` folder within the `server` directory. To run the tests, follow these steps:
+Testing for the server-side code is implemented using Pytest. Tests are located in the `tests` folder within the `server` directory, and the main test document is named `test_app.py`. To run the tests, follow these steps:
 
 1. Navigate to the `server` folder:
 

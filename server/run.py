@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
 
 # explicitly set os variable here
-os.environ['OPENAI_API_KEY'] = ""
+os.environ['OPENAI_API_KEY'] = 'YOUR_OPENAI_API_KEY'
 
 app = Flask(__name__)
 #Configure Flask app for JWT
