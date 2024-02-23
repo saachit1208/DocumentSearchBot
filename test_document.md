@@ -110,6 +110,7 @@ def test_upload_files_unauthorized(client):
 
 
 ```
+### 6. Test Upload Files (Invalid Extension)
 ``` python
 def test_upload_files_invalid_extension(client):
     # Create a sample access token for an admin user
@@ -135,7 +136,26 @@ def test_upload_files_invalid_extension(client):
         assert "Invalid file type" in data["error"]
 
 ```
+### 7. Test Upload Files (Large File)
 ``` python
+def test_upload_files_large_file(client):
+    # Create a sample access token for an admin user
+    with client.application.app_context():
+        # Define the maximum file size in megabytes
+        MAX_FILE_SIZE_MB = 2
+        access_token = create_access_token(identity={"username": "admin", "role": "admin"})
+
+        # Create a large file that exceeds the size limit
+        file_content = b"Large file content" * (MAX_FILE_SIZE_MB * 1024 * 1024 + 1)
+        file = FileStorage(
+            stream=BytesIO(file_content),
+            filename="large_file.pptx",
+            content_type="text/plain"
+        )
+
+        # Make the API call to upload the file
+        response = client.post("/upload", data={"file": (file, "large_file.txt")},
+                            headers={"Authorization": f"Bearer {access_token}"})
 
 ```
 
