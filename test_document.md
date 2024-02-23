@@ -22,3 +22,32 @@ def client():
     app.config["UPLOAD_FOLDER"] = "./tests/test_data"  # Use a separate upload folder for testing
     client = app.test_client()
     yield client
+```
+## Test Cases
+### 1. Test Login
+``` python
+Copy code
+def test_login(client):
+    print("test1-----------------")
+    print(client)
+    response = client.post(
+        "/login",
+        json={"username": "saachi", "password": "admin"},
+        content_type="application/json",
+    )
+    data = json.loads(response.data)
+    assert response.status_code == 200
+    assert "access_token" in data
+```
+
+``` python
+def test_search_authorized(client):
+    with client.application.app_context():
+        access_token = create_access_token(identity={"username": "saachi", "role": "admin"})
+        headers = {"Authorization": f"Bearer {access_token}"}
+        response = client.get("/search", headers=headers)
+        assert response.status_code == 400
+        data = json.loads(response.data)
+        assert "error" in data and "No query found." in data["error"]
+
+```
