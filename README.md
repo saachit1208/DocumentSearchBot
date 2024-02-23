@@ -5,6 +5,7 @@ A simple search bot application built with React (client) and Flask (server).
 ## Table of Contents
 
 - [Description](#description)
+- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
@@ -13,6 +14,8 @@ A simple search bot application built with React (client) and Flask (server).
 ## Description
 
 The Search Bot App is a web application that allows users to perform searches using a search bot implemented with React on the client side and Flask on the server side. The application is designed to showcase the integration of a frontend React app with a Python-based Flask backend.
+## Demo
+ Live demo of the project [here](https://drive.google.com/file/d/1zHyV58c78sQsgTfWptxxpqBoF0L8c20y/view?usp=drive_link)
 
 ## Installation
 
