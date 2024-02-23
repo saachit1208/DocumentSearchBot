@@ -40,6 +40,7 @@ def test_login(client):
     assert "access_token" in data
 ```
 
+### 2. Test Search (Authorized)
 ``` python
 def test_search_authorized(client):
     with client.application.app_context():
@@ -49,5 +50,92 @@ def test_search_authorized(client):
         assert response.status_code == 400
         data = json.loads(response.data)
         assert "error" in data and "No query found." in data["error"]
+```
+### 3. Test Search (Unauthorized)
+``` python
+def test_search_unauthorized(client):
+    response = client.get("/search")
+    assert response.status_code == 401
+```
+### 4. Test Upload Files (Success)
+``` python
+def test_upload_files_success(client):
+    # Create a sample access token for an admin user
+    with client.application.app_context():
+        access_token = create_access_token(identity={"username": "admin", "role": "admin"})
+
+        # Create a file with the desired content and properties
+        file_content = b"Sample file content"
+        file = FileStorage(
+            stream=BytesIO(file_content),
+            filename="test_file.doc",  # Change the extension to .doc
+            content_type="application/msword"
+        )
+
+        # Make the API call to upload the file
+        response = client.post("/upload", data={"file": (file, "test_file.doc")},
+                            headers={"Authorization": f"Bearer {access_token}"})
+
+        # Check that the response is as expected
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert "uploaded_files" in data
+        assert data["uploaded_files"] == ["test_file.doc"]
 
 ```
+### 5. Test Upload Files (Unauthorized)
+``` python
+def test_upload_files_unauthorized(client):
+    with client.application.app_context():
+        # Create a sample access token for a non-admin user
+        access_token = create_access_token(identity={"username": "user", "role": "user"})
+
+        # Create a file with the desired content and properties
+        file_content = b"Unauthorized file content"
+        file = FileStorage(
+            stream=BytesIO(file_content),
+            filename="unauthorized_file.txt",
+            content_type="text/plain"
+        )
+
+        # Make the API call to upload the file
+        response = client.post("/upload", data={"file": (file, "unauthorized_file.txt")},
+                                headers={"Authorization": f"Bearer {access_token}"})
+
+        # Check that the response is as expected
+        assert response.status_code == 403
+        data = json.loads(response.data)
+        assert "error" in data
+        assert "Unauthorized" in data["error"]
+
+
+```
+``` python
+def test_upload_files_invalid_extension(client):
+    # Create a sample access token for an admin user
+    with client.application.app_context():
+        access_token = create_access_token(identity={"username": "admin", "role": "admin"})
+
+        # Create a file with an invalid extension
+        file_content = b"Invalid file content"
+        file = FileStorage(
+            stream=BytesIO(file_content),
+            filename="invalid_file.exe",  # Invalid extension
+            content_type="application/octet-stream"
+        )
+
+        # Make the API call to upload the file
+        response = client.post("/upload", data={"file": (file, "invalid_file.exe")},
+                            headers={"Authorization": f"Bearer {access_token}"})
+
+        # Check that the response is as expected
+        assert response.status_code == 400
+        data = json.loads(response.data)
+        assert "error" in data
+        assert "Invalid file type" in data["error"]
+
+```
+``` python
+
+```
+
