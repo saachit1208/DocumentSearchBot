@@ -31,7 +31,7 @@ The Flask back end uses JSON Web Tokens (JWT) for secure user authentication. Us
 Flask back-end APIs handle file-related functionalities, including uploading, listing, and deleting files. User roles (admin, user) are enforced to control access to specific functionalities. Robust error handling is implemented to address various scenarios.
 
 ### 3.3 Search API Integration
-The search API takes a query input and passes this to the LLAMA-INDEX backed document search flow. It returns the response
+The search API takes a query input and passes this to the LLAMA-INDEX backed document search flow. It returns the response as an "answer" to your query.
 
 #### 3.3.1 LLama Index Integration
 Llama Index is data framework connecting custom data sources with Large Language models. It uses the principle of Retrieval Augmented Generation to provide end to end  pipelines to work with custom data.
