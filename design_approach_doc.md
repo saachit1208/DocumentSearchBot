@@ -45,7 +45,7 @@ Query Engines: A query engine is an end-to-end pipeline that allow you to ask qu
 
 [^1]: https://docs.llamaindex.ai/en/v0.9.10/getting_started/concepts.html
 
-![image](https://github.com/saachit1208/DocumentSearchBot/assets/32326876/9adb6858-8cb8-44bf-8ac3-32192ffc3907)
+![image](https://docs.llamaindex.ai/en/v0.9.10/_images/basic_rag.png)
 
 *Image Source: [Llama Index High Level Concepts](https://docs.llamaindex.ai/en/v0.9.10/getting_started/concepts.html)*
 
