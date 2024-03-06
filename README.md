@@ -83,19 +83,6 @@ To run the Search Bot App, follow the steps below:
 
 To run both the React app and Flask server simultaneously, you can use tools like `concurrently` (for npm) or `&` (for Windows command line). Here are examples:
 
-#### Using concurrently (for npm):
-
-1. Install `concurrently` globally (if not already installed):
-
-    ```bash
-    npm install -g concurrently
-    ```
-
-2. Run both apps simultaneously:
-
-    ```bash
-    npm run dev
-    ```
 
 #### Using Windows Command Line:
 
